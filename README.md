@@ -4,6 +4,8 @@ FaithfulAI is a Christian-based large language model ready to answer any Bible-r
 This chatbot is designed to help users learn more about the Bible and its teachings in a fun and interactive way.
 It also can speak in multiple languages, including English, Spanish, French, German, and Chinese.
 
+![image](https://github.com/user-attachments/assets/0aafe42c-6070-4096-bb14-42f784176043)
+
 ## Features
 - Answer Bible-related questions
 - Speak in multiple languages
