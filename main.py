@@ -47,7 +47,7 @@ def initialize_streamlit():
         """
 
     # Get user input and handle the conversation
-    user_input = st.text_input(label="", placeholder="Message Faithful AI")
+    user_input = st.text_input(label="You", placeholder="Message Faithful AI")
     if user_input or st.button("Send", ):
         with st.spinner("Loading..."):
             result = handle_conversation(st.session_state.context, user_input)
