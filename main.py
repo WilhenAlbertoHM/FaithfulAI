@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 from dotenv import load_dotenv
 load_dotenv()
 
+
 # Initialize the model and prompt template
 model = OllamaLLM(model="llama3")
 template = """
