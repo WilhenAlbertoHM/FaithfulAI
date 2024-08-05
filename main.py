@@ -15,6 +15,7 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 # Function to handle the conversation
+@st.cache_data(show_spinner=False)
 def handle_conversation(context, user_input):
     try:
         result = chain.invoke({"context": context, "question": user_input})
