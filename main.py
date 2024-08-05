@@ -1,6 +1,16 @@
 import streamlit as st
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+import os
+import logging
+
+# Initialize logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
 
 # Initialize the model and prompt template
 model = OllamaLLM(model="llama3")
@@ -15,7 +25,7 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 # Function to handle the conversation
-@st.cache_resource(show_spinner=False)
+@st.cache_data(show_spinner=False)
 def handle_conversation(context, user_input):
     try:
         result = chain.invoke({"context": context, "question": user_input})
