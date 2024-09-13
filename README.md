@@ -1,10 +1,10 @@
 # FaithfulAI
 
-![image](https://github.com/user-attachments/assets/a7d7d401-2d8b-4a38-ae74-788919275a64)
+![image](https://github.com/user-attachments/assets/c506b8f5-b17e-4670-8469-5bad7e8fcb41)
 
 FaithfulAI is a Christian-based large language model ready to answer any Bible-related questions in a energetic and positive manner.
 This chatbot is designed to help users learn more about the Bible and its teachings in a fun and interactive way.
-It also can speak in multiple languages, including English, Spanish, French, German, and Chinese.
+It also can speak in multiple languages, including English, Spanish, French, and German.
 
 ## Features
 - Answer Bible-related questions
@@ -41,6 +41,14 @@ The chatbot will then provide you with an answer.
 ## Acknowledgements
 - [Ollama](https://ollama.com/)
 - [Streamlit](https://streamlit.io/)
+
+## Future Plans
+There are several ideas in mind for the future:
+1. I'm learning about ways to deploy chatbots for the public to use. Currently, this is accessible via localhost.
+2. I look forward to using other models, such as Llama 3.1 and Claude 3.5 Sonnet, to see how they perform.
+3. Finally, an enhanced prompt would also benefit the user with more relevant answers.
+
+Very happy to work with you guys on this project, if interested :)!
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
