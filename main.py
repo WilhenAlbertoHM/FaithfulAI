@@ -19,7 +19,7 @@ chain = prompt | model
 def call_ollama_api(prompt): 
     try:
         response = requests.post(
-            st.secrets["OLLAMA_API_URL"], 
+            st.secrets["OLLAMA_API_KEY"], 
             headers={"Content-Type": "application/json"}, 
             json={"model": "llama3", "prompt": prompt, "stream": False}
         )
