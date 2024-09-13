@@ -44,9 +44,11 @@ The chatbot will then provide you with an answer.
 
 ## Future Plans
 There are several ideas in mind for the future:
-1. I'm learning about ways to deploy chatbots for the public to use. Currently, this is accessible via localhost.
-2. I look forward to using other models, such as Llama 3.1 and Claude 3.5 Sonnet, to see how they perform.
-3. Finally, an enhanced prompt would also benefit the user with more relevant answers.
+1. I'd like to add more features such as sources of reliable commentary on the Bible verses. It would be cool to see the connections that the verses have with one another, and how everything connects. YouTube links to sermons and online sources regarding specific topics would certainly help the user learn more.
+2. Integrate the Bible quiz I've made here as an additional feature to the website.
+3. I'm learning about ways to deploy chatbots for the public to use. Currently, this is accessible via localhost.
+4. I look forward to using other models, such as Llama 3.1 and Claude 3.5 Sonnet, to see how they perform.
+5. Finally, an enhanced prompt would also benefit the user with more relevant answers.
 
 Very happy to work with you guys on this project, if interested :)!
 
