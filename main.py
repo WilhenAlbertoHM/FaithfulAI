@@ -1,7 +1,6 @@
 import streamlit as st
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-from config import OLLAMA_API_URL
 import requests
 import json
 
@@ -20,7 +19,7 @@ chain = prompt | model
 def call_ollama_api(prompt): 
     try:
         response = requests.post(
-            OLLAMA_API_URL, 
+            st.secrets["OLLAMA_API_URL"], 
             headers={"Content-Type": "application/json"}, 
             json={"model": "llama3", "prompt": prompt, "stream": False}
         )
