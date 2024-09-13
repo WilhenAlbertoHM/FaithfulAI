@@ -30,7 +30,7 @@ streamlit run main.py
 ```
 
 ## Usage
-To use FaithfulAI, please head to [FaithfulAI](https://faithful-ai.streamlit.app/), type in your question, and click "Send." 
+To use FaithfulAI, please head to [FaithfulAI](https://faithful-ai.streamlit.app/), type in your question, and press "Enter" on your keyboard. 
 The chatbot will then provide you with an answer.
 
 ## Technologies
