@@ -11,7 +11,8 @@ st.markdown("---")
 chat = ChatGroq(
     temperature=0,
     groq_api_key=st.secrets["GROQ_API_KEY"],
-    model_name="llama3-8b-8192"
+    model_name="llama3-8b-8192",
+    max_tokens=10_000
 )
 template = "Here is the conversation history: {context}\n\nQuestion: {question}\n\nAnswer:"
 prompt = ChatPromptTemplate.from_template(template)
