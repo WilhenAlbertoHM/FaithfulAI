@@ -1,8 +1,6 @@
 import streamlit as st
-from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-import requests
-import json
+from langchain_groq import ChatGroq
 
 st.set_page_config(page_title="Faithful AI")
 st.title(r"$\textsf{\Large Faithful AI}$ 🤖✝️")
@@ -10,39 +8,33 @@ st.markdown("Your Christian chatbot to have conversations regarding the Bible :)
 st.markdown("---")
 
 # Initialize the model and prompt template
-model = OllamaLLM(model="llama3")
+chat = ChatGroq(
+    temperature=0,
+    groq_api_key=st.secrets["GROQ_API_KEY"],
+    model_name="llama3-8b-8192"
+)
 template = "Here is the conversation history: {context}\n\nQuestion: {question}\n\nAnswer:"
 prompt = ChatPromptTemplate.from_template(template)
-chain = prompt | model
+chain = prompt | chat
 
-# Call the Ollama API to generate a response
-def call_ollama_api(prompt): 
-    try:
-        response = requests.post(
-            st.secrets["OLLAMA_API_KEY"], 
-            headers={"Content-Type": "application/json"}, 
-            json={"model": "llama3", "prompt": prompt, "stream": False}
-        )
-        data = json.loads(response.text)
-        return data["response"]
-    except requests.exceptions.RequestException as e:
-        print(f"Error connecting to Ollama API: {e}")
-        return "Error: Unable to connect to Ollama API"
-
-
-# Handle conversation using the Ollama API
+# Call Groq to generate a response
 @st.cache_data(show_spinner=False)
-def handle_conversation(context, user_input):
-    prompt = f"Here is the conversation history: {context}\n\nQuestion: {user_input}\n\nAnswer:"
-    return call_ollama_api(prompt)
-
+def get_response(context, question): 
+    try:
+        response = chain.invoke({
+            "context": context, 
+            "question": question
+        })
+        return response.content
+    except Exception as e:
+        return f"An error occurred: {e}"
 
 # Handle user input and generate a response
 def handle_input():
     user_input = st.session_state.user_input
     if user_input:
         with st.spinner("Loading..."):
-            result = handle_conversation(st.session_state.context, user_input)
+            result = get_response(st.session_state.context, user_input)
         st.session_state.context += f"\nYou: {user_input}\nAI: {result}"
         st.session_state.chat_dialogue.append(f"You: {user_input}")
         st.session_state.chat_dialogue.append(f"AI: {result}")
@@ -90,4 +82,3 @@ def initialize_streamlit():
 
 if __name__ == "__main__":
     initialize_streamlit()
-    
