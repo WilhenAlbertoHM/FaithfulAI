@@ -12,7 +12,7 @@ chat = ChatGroq(
     temperature=0,
     groq_api_key=st.secrets["GROQ_API_KEY"],
     model_name="llama3-8b-8192",
-    max_tokens=10_000
+    max_tokens=8192
 )
 template = "Here is the conversation history: {context}\n\nQuestion: {question}\n\nAnswer:"
 prompt = ChatPromptTemplate.from_template(template)
