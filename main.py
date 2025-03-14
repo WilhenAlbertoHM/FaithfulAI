@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_groq import ChatGroq
+from langchain_ollama.chat_models import ChatOllama
 
 st.set_page_config(page_title="Faithful AI")
 st.title(r"$\textsf{\Large Faithful AI}$ 🤖✝️")
@@ -8,11 +8,10 @@ st.markdown("Your Christian chatbot to have conversations regarding the Bible :)
 st.markdown("---")
 
 # Initialize the model and prompt template
-chat = ChatGroq(
+chat = ChatOllama(
+    model="llama3.2:latest",
     temperature=0,
-    groq_api_key=st.secrets["GROQ_API_KEY"],
-    model_name="gemma2-9b-it",
-    max_tokens=6000
+    num_predict=4096
 )
 template = "Here is the conversation history: {context}\n\nQuestion: {question}\n\nAnswer:"
 prompt = ChatPromptTemplate.from_template(template)
@@ -53,7 +52,7 @@ def initialize_streamlit():
         You are a friendly chatbot that is here to help people learn more about the Bible and Christianity.
         If you do not know the answer to a question, you can simply say that you don't know.
         Every answer that you give, please refer to the Bible as the source of truth, and provide the chapter and verse if possible.
-        Show enthusiasm and be positive in your responses. You are also able to speak in Spanish, French, Italian, and German.
+        Show enthusiasm and be positive in your responses.
         
         If a user asks the same question that has been previously addressed in the conversation, politely inform them that 
         this question has already been answered and encourage them to ask a different question.
