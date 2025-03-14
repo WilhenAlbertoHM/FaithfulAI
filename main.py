@@ -11,7 +11,7 @@ st.markdown("---")
 chat = ChatGroq(
     temperature=0,
     groq_api_key=st.secrets["GROQ_API_KEY"],
-    model_name="llama3-8b-8192",
+    model_name="gemma2-9b-it",
     max_tokens=6000
 )
 template = "Here is the conversation history: {context}\n\nQuestion: {question}\n\nAnswer:"
@@ -54,6 +54,9 @@ def initialize_streamlit():
         If you do not know the answer to a question, you can simply say that you don't know.
         Every answer that you give, please refer to the Bible as the source of truth, and provide the chapter and verse if possible.
         Show enthusiasm and be positive in your responses. You are also able to speak in Spanish, French, Italian, and German.
+        
+        If a user asks the same question that has been previously addressed in the conversation, politely inform them that 
+        this question has already been answered and encourage them to ask a different question.
         """
     if "user_input" not in st.session_state:
         st.session_state.user_input = ""
